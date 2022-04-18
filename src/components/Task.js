@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-
 import './Task.css'
 
 class Task extends React.Component {
-
 
     StyleCompleted() {
         return {
@@ -21,8 +19,11 @@ class Task extends React.Component {
             {task.description} -
             {task.done} -
             {task.id}
-            <input type="checkbox" />
-            <button style={btnDelete}>
+            <input type="checkbox" onChange={this.props.checkDone.bind(this, task.id)} />
+            <button style={btnDelete} 
+            onClick={this.props.deleteTask.bind(this, task.id)}
+            
+            >
                 x
             </button>
         </div>
@@ -32,7 +33,7 @@ class Task extends React.Component {
 /* PropTypes
 Son como los modelos de Sequelize, se asegura que el dato recibido sea el esperado */
 Task.propTypes = {
-    task: PropTypes.object.isRequired
+    task: PropTypes.array.isRequired
 }
 
 /* Usar estilos en linea pasando una var
@@ -46,7 +47,7 @@ const btnDelete = {
     border: 'none',
     padding: '10px 15px',
     borderRadius: '50%'
-}
+} 
 
 
 
