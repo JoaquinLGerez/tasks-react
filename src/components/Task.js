@@ -7,22 +7,24 @@ class Task extends React.Component {
     StyleCompleted() {
         return {
             fontSize: '20px',
-            color: this.props.task.done ? 'black' : 'red',
+            color: this.props.task.done ? 'grey' : 'black',
             textDecoration: this.props.task.done ? 'line-through' : 'none'
         }
     }
 
     render() {
         const { task } = this.props;
-        return <div style={this.StyleCompleted()}>
-            {task.title} -
-            {task.description} -
-            {task.done} -
-            {task.id}
-            <input type="checkbox" onChange={this.props.checkDone.bind(this, task.id)} />
-            <button style={btnDelete} 
-            onClick={this.props.deleteTask.bind(this, task.id)}
-            
+        return <div className='tareascontainer' style={this.StyleCompleted()}>
+            <div className='tareastextbox'>
+                <div> Titulo: {task.title} </div>
+                <div>Descripcion: {task.description} </div>
+                <div>{task.done}</div>
+                <div>ID: {task.id} </div>
+            </div>
+            <input className='checkbox' type="checkbox" onChange={this.props.checkDone.bind(this, task.id)} />
+            <button style={btnDelete}
+                onClick={this.props.deleteTask.bind(this, task.id)}
+
             >
                 x
             </button>
@@ -47,7 +49,7 @@ const btnDelete = {
     border: 'none',
     padding: '10px 15px',
     borderRadius: '50%'
-} 
+}
 
 
 

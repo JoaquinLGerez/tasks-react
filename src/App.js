@@ -4,6 +4,7 @@ import Tasks from './components/Tasks';
 import tasks from './sample/tasks.json'
 import TaskForm from './components/TaskForm';
 import Post from './components/Post';
+import { Link, BrowserRouter } from 'react-router-dom'
 
 class App extends Component {
 
@@ -22,33 +23,35 @@ class App extends Component {
     })
   }
 
-  deleteTask = (id) =>{
+  deleteTask = (id) => {
     const newTasks = this.state.tasks.filter(task => task.id !== id)
-    this.setState({tasks: newTasks})
+    this.setState({ tasks: newTasks })
   }
 
   checkDone = id => {
     const newTasks = this.state.tasks.map(task => {
-      if (task.id === id){
+      if (task.id === id) {
         task.done = !task.done
       }
       return task;
     });
-    this.setState({tasks: newTasks})
+    this.setState({ tasks: newTasks })
   }
 
   render() {
-    return <div>
+    return <BrowserRouter>
+      <Link to='/'>Home</Link>
+      <Link to='/post'>Posts</Link>
       <TaskForm addTask={this.addTask} />
       <Tasks
         tasks={this.state.tasks}
         deleteTask={this.deleteTask}
         key={tasks.id}
-        checkDone = {this.checkDone}
+        checkDone={this.checkDone}
       />
       <Post />
 
-    </div>
+    </BrowserRouter>
   }
 }
 

@@ -1,19 +1,19 @@
 [{
         "id": 0,
-        "title": "task one",
-        "description": "lorem ipsum",
-        "done": true
+        "title": "terminar la to do de React",
+        "description": "aprendiendo en react ",
+        "done": false
     },
     {
         "id": 1,
-        "title": "task 2",
-        "description": "lorem ipsum",
+        "title": "cortar el pasto",
+        "description": "antes de las 5",
         "done": false
     },
     {
         "id": 2,
-        "title": "task 3",
-        "description": "lorem ipsum",
-        "done": true 
+        "title": "cocinar",
+        "description": "NO OLVIDAR!!! comprar oferta de milanesas",
+        "done": false
     }
 ]
